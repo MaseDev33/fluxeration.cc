@@ -1,0 +1,18 @@
+
+title: Fluxeration
+description: A little corner of the internet.
+
+url: "https://fluxeration.cc"
+baseurl: ""
+
+include:
+  - .well-known
+
+exclude:
+  - .github
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+markdown: kramdown
+plugins: []
