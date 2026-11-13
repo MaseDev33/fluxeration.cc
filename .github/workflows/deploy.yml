@@ -34,11 +34,17 @@ jobs:
       - name: Prepare entire repository
         run: |
           mkdir -p _site
-          rsync -a \
+          rsync -av \
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='_site/' \
             ./ _site/
+
+          # Ensure .well-known is included
+          if [ -d .well-known ]; then
+            mkdir -p _site/.well-known
+            cp -a .well-known/. _site/.well-known/
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
